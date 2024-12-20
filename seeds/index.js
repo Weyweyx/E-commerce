@@ -23,6 +23,6 @@ const seedAll = async () => {
   process.exit(0);
 };
 
-module.exports = {seedAll}
+seedAll()
 
 

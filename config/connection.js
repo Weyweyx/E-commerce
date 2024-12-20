@@ -1,4 +1,6 @@
 require('dotenv').config();
+const fs = require ('fs');
+const path = require ('path');
 
 const Sequelize = require('sequelize');
 
@@ -18,4 +20,6 @@ const sequelize = process.env.DATABASE_URL
       },
     });
 
+    const schemaquery = fs.readFileSync(path.join(__dirname, '../db/schema.sql'), 'utf-8')
+    sequelize.query(schemaquery).then(()=> console.log('schema uploaded'))
 module.exports = sequelize;
